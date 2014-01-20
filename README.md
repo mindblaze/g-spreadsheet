@@ -1,6 +1,6 @@
 NodeJS Module for Google Spread Sheets
 
- [![Build Status](https://secure.travis-ci.org/mindblaze/g-spreadsheet.png)](http://travis-ci.org/mindblaze/g-spreadsheet)
+ [![Build Status](https://travis-ci.org/mindblaze/g-spreadsheet.png?branch=master)](https://travis-ci.org/mindblaze/g-spreadsheet)
 
 ## Installation
   $ npm install g-spreadsheet
