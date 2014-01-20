@@ -16,10 +16,10 @@
     "gdata",
     "api"
   ],
-  "homepage": "https://github.com/talha-asad/g-spreadsheet",
+  "homepage": "https://github.com/mindblaze/g-spreadsheet",
   "repository": {
     "type": "git",
-    "url": "git://github.com/talha-asad/g-spreadsheet.git"
+    "url": "git://github.com/mindblaze/g-spreadsheet.git"
   },
   "main": "g-spreadsheet.js",
   "engines": {
