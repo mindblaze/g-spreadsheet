@@ -95,6 +95,7 @@ function WorkSheet(spreadSheetId, workSheetId, oauth, title, rows, cols) {
           }
           result.push(newEntry);
         }
+        cb(null, result);
       });
     });
   }
