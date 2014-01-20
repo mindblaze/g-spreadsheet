@@ -1,0 +1,32 @@
+{
+  "author": {
+    "name": "Talha Asad",
+    "email": "talha@mindblaze.net",
+    "url": "http://mindblaze.net"
+  },
+  "name": "g-spreadsheet",
+  "description": "Google Spreadsheet Data API -- simple interface to read rows and cells",
+  "version": "0.0.1",
+  "keywords": [
+    "google",
+    "google-spreadsheet",
+    "google-spreadsheets",
+    "spreadsheet",
+    "spreadsheets",
+    "gdata",
+    "api"
+  ],
+  "homepage": "https://github.com/talha-asad/g-spreadsheet",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/talha-asad/g-spreadsheet.git"
+  },
+  "main": "g-spreadsheet.js",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "request": "~2.33.0",
+    "xml2json": "~0.3.2"
+  }
+}
