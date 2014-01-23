@@ -3,7 +3,7 @@ var xml2json = require('xml2json'),
     request = require('request'),
     http = require('http'),
     querystring = require('querystring'),
-    ent = require('ent');
+    entities = require('entities');
 
 var BASE_URL = "https://spreadsheets.google.com/feeds/";
 
@@ -94,7 +94,7 @@ function WorkSheet(spreadSheetId, workSheetId, oauth, title, rows, cols) {
             var value = entry['gsx:'+rowKey];
             if (typeof value == 'object' && Object.keys(value).length == 0) value = null;
             else if (value == undefined) value = null;
-            else if (typeof value == 'string') value = ent.decode(value);
+            else if (typeof value == 'string') value = entities.decode(value);
             newEntry[columnHeader[j]] = value;
           }
           result.push(newEntry);
