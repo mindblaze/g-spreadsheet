@@ -73,7 +73,7 @@ function WorkSheet(spreadSheetId, workSheetId, oauth, title, rows, cols) {
       query = null;
     }
     var result = [];
-    this.getCells({"min-row": 1, "max-row": 1, "min-cols": self.cols}, function (e, body) {
+    this.getCells({"min-row": 1, "max-row": 1, "min-col": 1, "max-col": self.cols}, function (e, body) {
       if (e) return cb(e);
       var columnHeader = [];
       var entries = body.entry;
