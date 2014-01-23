@@ -6,7 +6,7 @@
   },
   "name": "g-spreadsheet",
   "description": "Google Spreadsheet Data API -- simple interface to read rows and cells",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "keywords": [
     "google",
     "google-spreadsheet",
@@ -26,6 +26,7 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
+    "html-entities": "~1.0.10",
     "request": "~2.33.0",
     "xml2json": "~0.3.2"
   }
