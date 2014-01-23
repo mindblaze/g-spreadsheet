@@ -89,7 +89,8 @@ function WorkSheet(spreadSheetId, workSheetId, oauth, title, rows, cols) {
           var entry = entries[i];
           var newEntry = {};
           for (var j = 0; j < columnHeader.length; j++) {
-            var value = entry['gsx:'+columnHeader[j].replace(/[^a-zA-Z0-9]+/, '').toLowerCase()];
+            var rowKey = columnHeader[j].replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
+            var value = entry['gsx:'+rowKey];
             if (typeof value == 'object' && Object.keys(value).length == 0) value = null;
             else if (value == undefined) value = null;
             newEntry[columnHeader[j]] = value;
