@@ -6,7 +6,7 @@
   },
   "name": "g-spreadsheet",
   "description": "Google Spreadsheet Data API -- simple interface to read rows and cells",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "keywords": [
     "google spreadsheet",
     "google spreadsheets api",
