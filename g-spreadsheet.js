@@ -1,9 +1,8 @@
 
-var xml2json = require('xml2json'),
+var xml2js = require('xml2js'),
     request = require('request'),
     http = require('http'),
-    querystring = require('querystring'),
-    entities = require('entities');
+    querystring = require('querystring');
 
 var BASE_URL = "https://spreadsheets.google.com/feeds/";
 
@@ -17,7 +16,13 @@ function doFeedRequest(spreadSheetId, workSheetId, oauth, type, query, cb) {
       if (e) return cb(e);
       switch (req.statusCode) {
         case 200:
-          return cb(null, JSON.parse(xml2json.toJson(body)).feed);
+          var parser = new xml2js.Parser({trim: true, explicitArray: false});
+          parser.parseString(body, function (e, result) {
+            if (e) return cb(e);
+            return cb(null, result.feed);
+          });
+          //return cb(null, JSON.parse(xml2json.toJson(body)).feed);
+          break;
         default:
           return cb(req.statusCode + ' ' + http.STATUS_CODES[req.statusCode]);
       }
@@ -40,7 +45,8 @@ function GoogleSpreadSheet(spreadSheetId, oauth) {
       query = null;
     }
     doFeedRequest(self.id, null, oauth, 'worksheets', query, function (e, body) {
-      self.title = body.title.$t;
+      if (e) return cb(e);
+      self.title = body.title['_'];
       self.updated = body.updated;
       self.author = body.author;
       var entries = body.entry;
@@ -49,7 +55,7 @@ function GoogleSpreadSheet(spreadSheetId, oauth) {
         var current = entries[i];
         var newEntry = {};
         newEntry.id = current.id.match(/\/([a-zA-z0-9\-\_]+)$/)[1];
-        newEntry.title = current.title.$t;
+        newEntry.title = current.title._;
         newEntry.rows = current['gs:rowCount'];
         newEntry.cols = current['gs:colCount'];
         self.worksheets.push(new WorkSheet(self.id, newEntry.id, oauth, newEntry.title, newEntry.rows, newEntry.cols));
@@ -80,7 +86,7 @@ function WorkSheet(spreadSheetId, workSheetId, oauth, title, rows, cols) {
       var entries = body.entry;
       if (!Array.isArray(body.entry)) entries = [body.entry];
       entries.forEach(function(entry) {
-        columnHeader.push(entry['gs:cell']['$t']);
+        columnHeader.push(entry['gs:cell']['_']);
       });
       doFeedRequest(self.sId, self.id, oauth, 'list', query, function (e, body) {
         if (e) return cb(e);

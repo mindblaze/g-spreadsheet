@@ -6,28 +6,26 @@
   },
   "name": "g-spreadsheet",
   "description": "Google Spreadsheet Data API -- simple interface to read rows and cells",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "keywords": [
-    "google",
-    "google-spreadsheet",
-    "google-spreadsheets",
-    "spreadsheet",
-    "spreadsheets",
-    "gdata",
-    "api"
+    "google spreadsheet",
+    "google spreadsheets api",
+    "node google spreadsheet",
+    "node spreadsheets",
+    "gdata api",
+    "spreadsheets api"
   ],
-  "homepage": "https://github.com/mindblaze/g-spreadsheet",
+  "homepage": "http://mindblaze.github.io/g-spreadsheet",
   "repository": {
     "type": "git",
     "url": "git://github.com/mindblaze/g-spreadsheet.git"
   },
   "main": "g-spreadsheet.js",
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   },
   "dependencies": {
-    "entities": "~0.3.0",
-    "request": "~2.33.0",
-    "xml2json": "~0.3.2"
+    "request": "~2.34.0",
+    "xml2js": "~0.4.2"
   }
 }
